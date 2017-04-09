@@ -27,3 +27,10 @@
 *.exe
 *.out
 *.app
+
+#IDE files
+*.cproject
+*.inc
+*.project
+.settings/*
+*.xml
