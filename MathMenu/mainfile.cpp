@@ -49,7 +49,6 @@ int main(int argc, char** argv) {
             cin >> num;
             std::cout << pow(num, 2) << std::endl;
             cout << "By the way, the number you just entered to itself is:" << calculateANum(num) << endl;
-            //todo this is a test.
 
         }
     }
