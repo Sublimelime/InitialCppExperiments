@@ -6,25 +6,25 @@
  * Part of project: MathMenu
  */
 
+#include <cmath>
 #include <iostream>
 #include <string>
-#include <cmath>
 
 /**
  * Calculates a number to the power of itself.
  * num is the number to raise num to.
  */
 int calculateANum(int num) {
-    int localnum = pow(num, num);
-    return localnum;
+	int localnum = pow(num, num);
+	return localnum;
 }
 
 /*
  *
  */
 int main(int argc, char** argv) {
-    using namespace std;
-    cout << "Initialization" << std::endl;
+	using namespace std;
+	cout << "Initialization" << std::endl;
 
     while (true) {
         std::cout << "Choices:\n0. Exit\n1.Power\n2.Square root\n3.Square" << std::endl;
@@ -49,10 +49,9 @@ int main(int argc, char** argv) {
             cin >> num;
             std::cout << pow(num, 2) << std::endl;
             cout << "By the way, the number you just entered to itself is:" << calculateANum(num) << endl;
+		
+	}
 
-        }
-    }
-
-    return 0;
+	return 0;
 }
 
