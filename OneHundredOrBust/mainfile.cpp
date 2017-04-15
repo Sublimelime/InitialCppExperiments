@@ -109,7 +109,7 @@ int rollDie() {
 std::string findWinner(std::string names[], int namesSize,
 		int scores[],
 		int scoresSize) {
-	int highestVal, index = -1;
+	int highestVal { 0 }, index { -1 };
 	for (int i = 0; i < namesSize; i++) {
 		if (scores[i] > highestVal) {
 			highestVal = scores[i];
