@@ -9,6 +9,7 @@
 #define MAINFILE_H_
 
 #include <string>
+#include <vector>
 
 //returns a random int between 1-6
 int rollDie();
@@ -17,10 +18,9 @@ int rollDie();
  * Receives two arrays, returns a string containing the name of the winning player
  * or null if there is no winner yet.
  */
-std::string findWinner(std::string names[], int namesSize, int scores[],
-		int scoresSize);
+std::string findWinner(std::vector<std::string> names, std::vector<int> scores);
 
 //shuffles the array it receives
-void shuffle(std::string users[], int size);
+void shuffle(std::vector<std::string> users);
 
 #endif /* MAINFILE_H_ */

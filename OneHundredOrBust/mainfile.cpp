@@ -10,10 +10,11 @@
 #include <cstdlib>
 #include <iostream>
 #include <string>
+#include <vector>
 
 int main() {
 	using namespace std;
-	int playerNum { 0 }, playerCount;
+	int playerNum { 0 }, playerCount { 0 };
 
 	do {
 		cout << "How many players?\n";
@@ -23,13 +24,13 @@ int main() {
 		}
 		cin.ignore(2345567, '\n');
 	} while (playerCount < 2 || playerCount > 5);
-	string *playerNames = new string[playerCount];
-	int *playerScores = new int[playerCount];
+	vector<string> playerNames(playerCount);
+	vector<int> playerScores(playerCount);
 
 	int counter { 0 };
 	while (counter < playerCount) { //get player names for all players
 		cout << "Name of player " << counter << "?\n";
-		cin >> playerNames[counter];
+		cin >> playerNames.at(counter);
 		if (cin.fail()) {
 			cout << "Bad name, try again.\n";
 			cin.clear();
@@ -38,22 +39,19 @@ int main() {
 		}
 		cin.ignore(2345567, '\n');
 	}
-	shuffle(playerNames, playerCount);
+	shuffle(playerNames);
 
 	while (true) { // game loop
 		int turnScore = 0;
 		bool turnContinue = true;
-		string winner = findWinner(playerNames, playerCount, playerScores,
-				playerCount);
+		string winner = findWinner(playerNames, playerScores);
 		if (winner != "") {
 			cout << "The winner is " << winner << "!\n";
-			delete[] playerNames;
-			delete[] playerScores;
 			return 0;
 		}
 		while (turnContinue) {
 
-			cout << "Player " << playerNames[playerNum] << "'s turn. ";
+			cout << "Player " << playerNames.at(playerNum) << "'s turn. ";
 			cout << "Choices:\n1. Roll dice\n2.Conclude turn\n";
 			int choice;
 			//cin.ignore(2345567, '\n');
@@ -84,7 +82,7 @@ int main() {
 			case 2:
 				cout << "Stopping turn. Final score for turn is " << turnScore
 						<< endl;
-				playerScores[playerNum] += turnScore;
+				playerScores.at(playerNum) += turnScore;
 				turnContinue = false;
 				break;
 			}
@@ -92,8 +90,6 @@ int main() {
 		}
 		playerNum = (playerNum + 1) % playerCount;
 	}
-	delete[] playerNames;
-	delete[] playerScores;
 	return 0;
 }
 
@@ -106,11 +102,10 @@ int rollDie() {
  * Receives two arrays, returns a string containing the name of the winning player
  * or null if there is no winner yet.
  */
-std::string findWinner(std::string names[], int namesSize,
-		int scores[],
-		int scoresSize) {
+std::string findWinner(std::vector<std::string> names,
+		std::vector<int> scores) {
 	int highestVal { 0 }, index { -1 };
-	for (int i = 0; i < namesSize; i++) {
+	for (int i = 0; i < names.size(); i++) {
 		if (scores[i] > highestVal) {
 			highestVal = scores[i];
 			index = i;
@@ -123,18 +118,16 @@ std::string findWinner(std::string names[], int namesSize,
 }
 
 //shuffles the array it receives
-void shuffle(std::string users[], int size) {
+void shuffle(std::vector<std::string> users) {
 	using namespace std;
-	string *temp1 = new string[1];
-	string *temp2 = new string[1];
+	vector<string> temp1(1);
+	vector<string> temp2(1);
 	for (int y = 0; y < 10; y++) {
-		int random1 = (rand() % size);
-		int random2 = (rand() % size);
-		temp1[0] = users[random1];
-		temp2[0] = users[random2];
-		users[random1] = temp1[0];
-		users[random2] = temp2[0];
+		int random1 = (rand() % users.size());
+		int random2 = (rand() % users.size());
+		temp1.at(0) = users.at(random1);
+		temp2.at(0) = users.at(random2);
+		users.at(random1) = temp1.at(0);
+		users.at(random2) = temp2.at(0);
 	}
-	delete[] temp1;
-	delete[] temp2;
 }
