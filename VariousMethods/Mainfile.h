@@ -20,5 +20,7 @@ std::string intToString(int integer);
 
 void favorites();
 
+bool checkCin();
+
 
 #endif /* MAINFILE_H_ */
