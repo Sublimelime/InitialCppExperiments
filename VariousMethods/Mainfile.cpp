@@ -93,23 +93,47 @@ int main() {
 	return 0;
 }
 
-
+//Returns a String containing the numbers from the starting int to the ending int
 std::string numberRange(int lower, int upper) {
-	return "";
+	using namespace std;
+	string finalString { };
+	for (int i = lower; i < upper; i++) {
+		finalString += i;
+	}
+	return finalString;
 }
 
+//Returns a String containing the letters from the starting letter to the ending letter
 std::string letterRange(char lower, char upper) {
+	char alphabet[] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
+			'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x',
+			'y', 'z' };
+	std::string finalString { };
+	int indexOfLower { -1 }, indexOfUpper { -1 };
+
+	//find the indexes of both
+	for (int i = 0; i < sizeof(alphabet) / sizeof(alphabet[0]); i++) {
+
+	}
+	if (indexOfLower == -1 || indexOfUpper == -1) {
+		return "Cannot find char in alphabet.\n";
+	}
+
+
 	return "";
 }
 
+//Returns an int, the number of minutes in the given time
 int timeToMins(int hours, int minutes) {
 	return 0;
 }
 
+//Returns a String, the text version of the number
 std::string intToString(int integer) {
 	return "";
 }
 
+//The method will print the maker’s favorite food, game, movie, song & sport
 void favorites() {
 
 }
