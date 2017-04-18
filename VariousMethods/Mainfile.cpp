@@ -38,7 +38,7 @@ int main() {
 			if (!checkCin()) {
 				continue;
 			}
-			cout << numberRange(lower, upper);
+			cout << numberRange(lower, upper) << '\n';
 		}
 			break;
 		case 2: {
@@ -53,7 +53,7 @@ int main() {
 			if (!checkCin()) {
 				continue;
 			}
-			cout << letterRange(lower, upper);
+			cout << letterRange(lower, upper) << '\n';
 		}
 			break;
 		case 3: {
@@ -95,10 +95,10 @@ int main() {
 
 //Returns a String containing the numbers from the starting int to the ending int
 std::string numberRange(int lower, int upper) {
-	using namespace std;
-	string finalString { };
-	for (int i = lower; i < upper; i++) {
-		finalString += i;
+	using std::string;
+	string finalString {""};
+	for (int i = lower; i <= upper; i++) {
+		finalString += std::to_string(i);
 	}
 	return finalString;
 }
@@ -126,7 +126,7 @@ std::string letterRange(char lower, char upper) {
 	}
 
 	//build final string
-	for (int k = indexOfLower; k < indexOfUpper; k++) {
+	for (int k = indexOfLower; k <= indexOfUpper; k++) {
 		finalString += alphabet[k];
 	}
 
@@ -135,17 +135,22 @@ std::string letterRange(char lower, char upper) {
 
 //Returns an int, the number of minutes in the given time
 int timeToMins(int hours, int minutes) {
-	return 0;
+	return (hours*60)+minutes;
 }
 
 //Returns a String, the text version of the number
 std::string intToString(int integer) {
-	return "";
+	return ""+ std::to_string(integer);
 }
 
 //The method will print the maker’s favorite food, game, movie, song & sport
 void favorites() {
-
+	using std::cout;
+	cout << "Food: Cheese\n";
+	cout << "Game genre: JRPG\n";
+	cout << "Movie: N/a\n";
+	cout << "Song genre: Electronic\n";
+	cout << "Sport: Golf\n";
 }
 
 //checks if input was valid, and clears it out
