@@ -113,14 +113,24 @@ std::string letterRange(char lower, char upper) {
 
 	//find the indexes of both
 	for (int i = 0; i < sizeof(alphabet) / sizeof(alphabet[0]); i++) {
-
+		if(alphabet[i] == lower) {
+			indexOfLower = i;
+		} else if (alphabet[i] == upper) {
+			indexOfUpper = i;
+		}
 	}
-	if (indexOfLower == -1 || indexOfUpper == -1) {
+	if (indexOfLower == -1 || indexOfUpper == -1) { //check for invalid input
 		return "Cannot find char in alphabet.\n";
+	} else if (indexOfUpper < indexOfLower) {
+		return "Second letter comes before first.\n";
 	}
 
+	//build final string
+	for (int k = indexOfLower; k < indexOfUpper; k++) {
+		finalString += alphabet[k];
+	}
 
-	return "";
+	return finalString;
 }
 
 //Returns an int, the number of minutes in the given time
