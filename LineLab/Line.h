@@ -13,6 +13,7 @@
 class Line {
 
 	int point1X, point2X, point1Y, point2Y;
+	double slope, xInt, yInt;
 
 public:
 
@@ -21,6 +22,9 @@ public:
 		point2X = p2x;
 		point1Y = p1y;
 		point2Y = p2y;
+		slope = (p2y - p1y) / (p2x - p1x);
+		yInt = p1y - slope * p1x;
+		xInt = (-yInt) / slope;
 	}
 
 	int getPoint1X() const {
@@ -56,6 +60,20 @@ public:
 	}
 
 	std::string print();
+
+	double getSlope() const {
+		return slope;
+	}
+
+	double getXInt() const {
+		return xInt;
+	}
+
+	double getYInt() const {
+		return yInt;
+	}
+
+	void fixVars(); //todo write and add to other methods
 };
 
 

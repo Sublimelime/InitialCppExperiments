@@ -9,6 +9,7 @@
 #include "Mainfile.h"
 #include "Line.h"
 #include <string>
+#include <cmath>
 
 int main() {
 	using namespace std;
@@ -112,7 +113,13 @@ bool checkCin() {
 }
 
 std::string viewIntersect(Line &ln1, Line &ln2) {
+	if (abs(ln1.getSlope() - ln2.getSlope()) > 0.00000000001) {
+		double xInter = (ln2.getYInt() - ln1.getYInt())
+				/ (ln1.getSlope() - ln2.getSlope());
+		double yInter = ln1.getSlope() * xInter + ln1.getYInt();
 
+		return "The two lines intersect at: (" + xInter + "," + yInter + ")";
+	}
 
 	return "No intersect found.\n";
 }
@@ -148,11 +155,43 @@ void changeLine(Line &line) {
 }
 
 void changePoint1(Line &line) {
+	using std::cout;
+	using std::cin;
 
+	cout << "New value for X?\n";
+	int newX;
+	cin >> newX;
+	if (!checkCin()) {
+		return;
+	}
+	cout << "New value for Y?\n";
+	int newY;
+	cin >> newY;
+	if (!checkCin()) {
+		return;
+	}
+	line.setPoint1X(newX);
+	line.setPoint1Y(newY);
 }
 
 void changePoint2(Line &line) {
+	using std::cout;
+	using std::cin;
 
+	cout << "New value for X?\n";
+	int newX;
+	cin >> newX;
+	if (!checkCin()) {
+		return;
+	}
+	cout << "New value for Y?\n";
+	int newY;
+	cin >> newY;
+	if (!checkCin()) {
+		return;
+	}
+	line.setPoint2X(newX);
+	line.setPoint2Y(newY);
 }
 
 
