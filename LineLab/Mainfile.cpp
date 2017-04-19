@@ -8,6 +8,7 @@
 #include <iostream>
 #include "Mainfile.h"
 #include "Line.h"
+#include <string>
 
 int main() {
 	using namespace std;
@@ -77,17 +78,19 @@ int main() {
 		}
 			break;
 		case 3: {
-
+			changeLine(line1);
 		}
 			break;
 		case 4: {
-
+			changeLine(line2);
 		}
 			break;
 		case 5: {
-
+			cout << viewIntersect(line1, line2);
 		}
 			break;
+		default:
+			cout << "Invalid choice.\n";
 		}
 
 	}
@@ -107,3 +110,56 @@ bool checkCin() {
 	cin.ignore(12344557, '\n');
 	return true;
 }
+
+std::string viewIntersect(Line &ln1, Line &ln2) {
+
+
+	return "No intersect found.\n";
+}
+
+void changeLine(Line &line) {
+	using std::cout;
+	using std::cin;
+
+	while (true) {
+		cout << "--------------------------\n";
+		cout << "Choices:\n";
+		cout << "1.Change point 1\n2.Change point 2\n3.Change both\n4.Cancel\n";
+		int choice;
+		cin >> choice;
+		if (!checkCin()) {
+			continue;
+		}
+		switch (choice) {
+		case 1:
+			changePoint1(line);
+			return;
+		case 2:
+			changePoint2(line);
+			return;
+		case 3:
+			changePoint1(line);
+			changePoint2(line);
+			break;
+		case 4:
+			return;
+		}
+	}
+}
+
+void changePoint1(Line &line) {
+
+}
+
+void changePoint2(Line &line) {
+
+}
+
+
+
+
+
+
+
+
+
