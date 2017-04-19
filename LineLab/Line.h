@@ -8,6 +8,7 @@
 #ifndef LINE_H_
 #define LINE_H_
 
+#include <string>
 
 class Line {
 
@@ -53,6 +54,8 @@ public:
 	void setPoint2Y(int point2Y) {
 		this->point2Y = point2Y;
 	}
+
+	std::string print();
 };
 
 

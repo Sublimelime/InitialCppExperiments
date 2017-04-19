@@ -8,7 +8,7 @@
 #ifndef MAINFILE_H_
 #define MAINFILE_H_
 
-
+bool checkCin();
 
 
 
