@@ -5,11 +5,11 @@
  *      Author: othscs253
  */
 
-#include <iostream>
 #include "Mainfile.h"
-#include "Line.h"
-#include <string>
-#include <cmath>
+
+#include <cstdlib>
+#include <iostream>
+
 
 int main() {
 	using namespace std;
@@ -118,7 +118,8 @@ std::string viewIntersect(Line &ln1, Line &ln2) {
 				/ (ln1.getSlope() - ln2.getSlope());
 		double yInter = ln1.getSlope() * xInter + ln1.getYInt();
 
-		return "The two lines intersect at: (" + xInter + "," + yInter + ")";
+		return "The two lines intersect at: (" + std::to_string(xInter) + ","
+				+ std::to_string(yInter) + ")";
 	}
 
 	return "No intersect found.\n";
@@ -193,12 +194,3 @@ void changePoint2(Line &line) {
 	line.setPoint2X(newX);
 	line.setPoint2Y(newY);
 }
-
-
-
-
-
-
-
-
-

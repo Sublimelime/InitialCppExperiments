@@ -16,3 +16,9 @@ std::string Line::print() {
 			+ ")\n";
 	return print;
 }
+
+void Line::fixVars() {
+	slope = (point2Y - point1Y) / (point2X - point1X);
+	yInt = point1Y - slope * point1X;
+	xInt = (-yInt) / slope;
+}

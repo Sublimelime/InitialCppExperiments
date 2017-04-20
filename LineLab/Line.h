@@ -27,12 +27,16 @@ public:
 		xInt = (-yInt) / slope;
 	}
 
+	void fixVars();
+	std::string print();
+
 	int getPoint1X() const {
 		return point1X;
 	}
 
 	void setPoint1X(int point1X) {
 		this->point1X = point1X;
+		fixVars();
 	}
 
 	int getPoint1Y() const {
@@ -41,6 +45,7 @@ public:
 
 	void setPoint1Y(int point1Y) {
 		this->point1Y = point1Y;
+		fixVars();
 	}
 
 	int getPoint2X() const {
@@ -49,6 +54,7 @@ public:
 
 	void setPoint2X(int point2X) {
 		this->point2X = point2X;
+		fixVars();
 	}
 
 	int getPoint2Y() const {
@@ -57,9 +63,8 @@ public:
 
 	void setPoint2Y(int point2Y) {
 		this->point2Y = point2Y;
+		fixVars();
 	}
-
-	std::string print();
 
 	double getSlope() const {
 		return slope;
@@ -73,7 +78,7 @@ public:
 		return yInt;
 	}
 
-	void fixVars(); //todo write and add to other methods
+
 };
 
 
