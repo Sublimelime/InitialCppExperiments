@@ -9,6 +9,7 @@
 #define LINE_H_
 
 #include <string>
+#include <cassert>
 
 class Line {
 
@@ -22,6 +23,7 @@ public:
 		point2X = p2x;
 		point1Y = p1y;
 		point2Y = p2y;
+		assert(p2x - p1x != 0);
 		slope = (p2y - p1y) / (p2x - p1x);
 		yInt = p1y - slope * p1x;
 		xInt = (-yInt) / slope;
