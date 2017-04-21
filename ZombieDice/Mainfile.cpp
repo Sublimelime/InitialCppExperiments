@@ -5,9 +5,17 @@
  *      Author: othscs253
  */
 
-//todo set gdb to run on uncaught exception
+#include "Mainfile.h"
+#include <string>
+#include <vector>
+
 
 int main() {
+	using namespace std;
+
+	vector<string> names;
+	vector<int> scores;
+
 
 	return 0;
 }
