@@ -6,6 +6,8 @@
  */
 
 #include "Mainfile.h"
+#include "ZombieDiceBucket.h"
+#include "ZombieDie.h"
 
 #include <cstdlib>
 #include <iostream>
