@@ -24,6 +24,10 @@ public:
 	ZombieDie() {
 	}
 
+	virtual ~ZombieDie() {
+
+	}
+
 	DieRoll getValue() {
 		return value;
 	}

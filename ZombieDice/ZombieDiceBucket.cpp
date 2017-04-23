@@ -7,9 +7,3 @@
 
 #include "ZombieDiceBucket.h"
 #include "ZombieDie.h"
-
-void ZombieDiceBucket::loadBucket() {
-
-}
-ZombieDie ZombieDiceBucket::draw() {
-}

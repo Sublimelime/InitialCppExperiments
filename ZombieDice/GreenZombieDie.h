@@ -17,6 +17,11 @@ public:
 	GreenZombieDie() {
 		dieColor = DieColor::GREEN;
 	}
+
+	virtual ~GreenZombieDie() {
+
+	}
+
 	virtual void roll() override final {
 		int randomRoll((rand() % 6) + 1);
 		switch (randomRoll) {
