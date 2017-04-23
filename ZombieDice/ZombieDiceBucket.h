@@ -11,17 +11,19 @@
 #include "ZombieDie.h"
 #include <vector>
 #include <string>
+#include <memory>
 
 class ZombieDiceBucket {
 public:
-	static std::vector<ZombieDie> dice;
+	std::vector<std::unique_ptr<ZombieDie>> dice;
 
 	ZombieDiceBucket() {
 		dice.resize(13);
+		loadBucket();
 	}
 
 	void loadBucket();
-	ZombieDie draw();
+	std::unique_ptr<ZombieDie>& draw();
 
 };
 

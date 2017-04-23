@@ -21,7 +21,9 @@ protected:
 	DieColor dieColor;
 	DieRoll value { DieRoll::NOT_ROLLED };
 public:
+
 	ZombieDie() {
+
 	}
 
 	virtual ~ZombieDie() {
