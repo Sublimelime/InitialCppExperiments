@@ -11,15 +11,23 @@
 #include <string>
 #include <iostream>
 
+enum class GameRating {
+	G, EVERYONE, EVERONE_TEN_PLUS, TEEN, MATURE, ADULTS, ONLY, RATING_PENDING,
+};
+
+enum class VideoRating {
+	G, PG, PG13, R,
+};
+
 class Rental {
 	std::string title;
 	double cost;
-	int rating;
+	GameRating rating;
 	bool rented;
 
 public:
 
-	Rental(std::string title, double cost, int rating) :
+	Rental(std::string title, double cost, GameRating rating) :
 			title(title), rating(rating), cost(cost), rented(false) {
 	}
 
@@ -44,7 +52,7 @@ public:
 	}
 
 	virtual friend std::ostream& operator<<(std::ostream &out,
-			const Rental &point) {
+			const Rental &rental) {
 		out << "Rental: Title: " << title << "\nCost: " << cost << "\nRating: "
 				<< rating << '\n';
 		return out;
