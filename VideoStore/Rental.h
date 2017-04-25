@@ -12,7 +12,7 @@
 #include <iostream>
 
 enum class GameRating {
-	G, EVERYONE, EVERONE_TEN_PLUS, TEEN, MATURE, ADULTS, ONLY, RATING_PENDING,
+	G, EVERYONE, EVERYONE_TEN_PLUS, TEEN, MATURE, ADULTS_ONLY, RATING_PENDING,
 };
 
 enum class VideoRating {
@@ -22,13 +22,16 @@ enum class VideoRating {
 class Rental {
 	std::string title;
 	double cost;
-	GameRating rating;
 	bool rented;
 
 public:
 
-	Rental(std::string title, double cost, GameRating rating) :
-			title(title), rating(rating), cost(cost), rented(false) {
+	Rental(std::string title, double cost,) :
+			title(title), cost(cost), rented(false) {
+	}
+
+	virtual ~Rental() {
+
 	}
 
 	double getCost() const {
@@ -51,12 +54,16 @@ public:
 		return title;
 	}
 
-	virtual friend std::ostream& operator<<(std::ostream &out,
-			const Rental &rental) {
-		out << "Rental: Title: " << title << "\nCost: " << cost << "\nRating: "
-				<< rating << '\n';
+	friend std::ostream& operator<<(std::ostream &out, const Rental &b) {
+		// Delegate printing responsibility for printing to member function print()
+		out << b.toString();
 		return out;
 	}
+
+	virtual std::string& toString() const {
+		return "Rental";
+	}
+
 };
 
 
