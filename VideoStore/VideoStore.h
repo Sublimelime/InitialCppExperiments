@@ -8,7 +8,42 @@
 #ifndef VIDEOSTORE_H_
 #define VIDEOSTORE_H_
 
+#include <vector>
+#include <string>
+#include "Video.h"
+#include "Game.h"
+#include "Rental.h"
 
+class VideoStore {
+
+	std::vector<Game> games;
+	std::vector<Video> videos;
+
+public:
+
+	void addRental(Rental* r);
+	int gamesInStock();
+	int videosInStock();
+
+	/**
+	 * Takes a vector of rental pointers, sorts them into games and videos.
+	 * Don't forget to delete all the rentals in the vector sent.
+	 */
+	VideoStore(const std::vector<Rental*>& rentals) {
+		for (int i = 0; i < rentals.size(); i++) {
+			addRental(rentals.at(i));
+		}
+	}
+
+	const std::vector<Game>& getGames() const {
+		return games;
+	}
+
+	const std::vector<Video>& getVideos() const {
+		return videos;
+	}
+
+};
 
 
 
