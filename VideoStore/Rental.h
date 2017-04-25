@@ -8,8 +8,8 @@
 #ifndef RENTAL_H_
 #define RENTAL_H_
 
-#include <string>
 #include <iostream>
+#include <string>
 
 enum class GameRating {
 	G, EVERYONE, EVERYONE_TEN_PLUS, TEEN, MATURE, ADULTS_ONLY, RATING_PENDING,
@@ -20,13 +20,14 @@ enum class VideoRating {
 };
 
 class Rental {
+protected:
 	std::string title;
 	double cost;
 	bool rented;
 
 public:
 
-	Rental(std::string title, double cost,) :
+	Rental(std::string title, double cost) :
 			title(title), cost(cost), rented(false) {
 	}
 
@@ -36,10 +37,6 @@ public:
 
 	double getCost() const {
 		return cost;
-	}
-
-	int getRating() const {
-		return rating;
 	}
 
 	bool isRented() const {
@@ -55,12 +52,12 @@ public:
 	}
 
 	friend std::ostream& operator<<(std::ostream &out, const Rental &b) {
-		// Delegate printing responsibility for printing to member function print()
+		// Delegate printing responsibility for printing to member function toString()
 		out << b.toString();
 		return out;
 	}
 
-	virtual const std::string& toString() const {
+	virtual std::string toString() const {
 		return "Rental";
 	}
 

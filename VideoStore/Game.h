@@ -9,7 +9,6 @@
 #define GAME_H_
 
 #include <string>
-#include <iostream>
 
 #include "Rental.h"
 
@@ -61,10 +60,13 @@ public:
 		return platform;
 	}
 
-	virtual const std::string& toString() const override {
-		return "Game: Title:" << title << "\nCost: " << cost << "\nRating"
-				<< ratingLocalized << "\n# of players: " << numberOfPlayers
-				<< "\nPlatform:" << platform;
+	virtual std::string toString() const override {
+		std::string temp = "Game: \nTitle: " + title + "\nCost: "
+				+ std::to_string(cost) + "\nRating: " + ratingLocalized
+				+ "\n# of players: "
+				+ std::to_string(numberOfPlayers)
+				+ "\nPlatform: " + platform;
+		return temp;
 	}
 
 };

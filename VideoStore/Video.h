@@ -14,8 +14,7 @@
 
 class Video: public Rental {
 
-	const std::string director, description, title;
-	const double cost;
+	const std::string description, director;
 	const int minutes;
 	std::string ratingLocalized;
 	VideoRating rating;
@@ -25,8 +24,9 @@ public:
 	Video(std::string title, double cost, VideoRating rating,
 			std::string description, std::vector<std::string> leadingActors,
 			std::string director, int minutes) :
-			title(title), cost(cost), rating(rating), description(description), minutes(
-					minutes), leadingActors(leadingActors) {
+			Rental(title, cost),
+			rating(rating), description(description), minutes(
+					minutes), leadingActors(leadingActors), director(director) {
 		//set the printable variable off of the rating, so it can be printed
 		switch (static_cast<int>(rating)) {
 			case 1:
@@ -44,11 +44,18 @@ public:
 		}
 	}
 
-	virtual const std::string& toString() const override {
-		return "Video: Title:" << title << "\nCost: " << cost << "\nRating"
-				<< ratingLocalized << "\nDirector: " << director << "\nMinutes:"
-				<< minutes << "\nDesc: " << description << "\nLeading actors: "
-				<< leadingActors;
+	virtual std::string toString() const override {
+		std::string temp = "Video: \nTitle: " + title + "\nCost: "
+				+ std::to_string(cost)
+				+ "\nRating: " + ratingLocalized
+				+ "\nDirector: " + director
+				+ "\nMinutes:" + std::to_string(minutes) + "\nDesc: "
+				+ description
+				+ "\nLeading actors: ";
+		for (int i = 0; i < leadingActors.size(); i++) {
+			temp += leadingActors.at(i);
+		}
+		return temp;
 	}
 
 	const std::string& getDescription() const {
