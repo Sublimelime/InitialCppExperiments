@@ -60,7 +60,7 @@ public:
 		return out;
 	}
 
-	virtual std::string& toString() const {
+	virtual const std::string& toString() const {
 		return "Rental";
 	}
 

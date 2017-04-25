@@ -61,7 +61,7 @@ public:
 		return platform;
 	}
 
-	virtual std::string& toString() const override {
+	virtual const std::string& toString() const override {
 		return "Game: Title:" << title << "\nCost: " << cost << "\nRating"
 				<< ratingLocalized << "\n# of players: " << numberOfPlayers
 				<< "\nPlatform:" << platform;
