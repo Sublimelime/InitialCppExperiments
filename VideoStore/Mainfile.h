@@ -8,7 +8,10 @@
 #ifndef MAINFILE_H_
 #define MAINFILE_H_
 
+#include <vector>
 
+template<typename T>
+void deallocateVector(std::vector<T*>& vect);
 
 
 

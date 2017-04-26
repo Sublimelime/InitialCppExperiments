@@ -14,8 +14,8 @@
 
 class Game: public Rental {
 
-	const std::string platform;
-	const int numberOfPlayers;
+	std::string platform;
+	int numberOfPlayers;
 	std::string ratingLocalized;
 	GameRating rating;
 
@@ -27,25 +27,25 @@ public:
 					numberOfPlayers), rating(rating) {
 		//set the printable variable off of the rating, so it can be printed
 		switch (static_cast<int>(rating)) {
-		case 1:
+		case 0:
 			ratingLocalized = "G";
 			break;
-		case 2:
+		case 1:
 			ratingLocalized = "Everyone";
 			break;
-		case 3:
+		case 2:
 			ratingLocalized = "Everyone 10+";
 			break;
-		case 4:
+		case 3:
 			ratingLocalized = "Teen";
 			break;
-		case 5:
+		case 4:
 			ratingLocalized = "Mature";
 			break;
-		case 6:
+		case 5:
 			ratingLocalized = "Adults only";
 			break;
-		case 7:
+		case 6:
 			ratingLocalized = "Rating pending";
 			break;
 		}

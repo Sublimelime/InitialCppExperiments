@@ -22,6 +22,8 @@ class VideoStore {
 public:
 
 	void addRental(Rental* r);
+	void removeGame(int index);
+	void removeVideo(int index);
 	int gamesInStock();
 	int videosInStock();
 
@@ -30,7 +32,7 @@ public:
 	 * Don't forget to delete all the rentals in the vector sent.
 	 */
 	VideoStore(const std::vector<Rental*>& rentals) {
-		for (int i = 0; i < rentals.size(); i++) {
+		for (unsigned int i = 0; i < rentals.size(); i++) {
 			addRental(rentals.at(i));
 		}
 	}
