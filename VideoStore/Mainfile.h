@@ -11,8 +11,7 @@
 #include <vector>
 
 template<typename T>
-void deallocateVector(std::vector<T*>& vect);
-
-
+  void
+  deallocateVector (std::vector<T*>& vect);
 
 #endif /* MAINFILE_H_ */
