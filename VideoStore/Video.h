@@ -50,13 +50,14 @@ public:
   virtual std::string
   toString () const override
   {
-    std::string temp = "Video: \nTitle: " + title + "\nCost: "
+    std::string temp = "\nVideo: \nTitle: " + title + "\nCost: "
 	+ std::to_string (cost) + "\nRating: " + ratingLocalized
 	+ "\nDirector: " + director + "\nMinutes:" + std::to_string (minutes)
 	+ "\nDesc: " + description + "\nLeading actors: ";
     for (unsigned int i = 0; i < leadingActors.size (); i++)
       {
 	temp += leadingActors.at (i);
+	temp += ", ";
       }
     return temp;
   }

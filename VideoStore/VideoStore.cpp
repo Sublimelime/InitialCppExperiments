@@ -8,10 +8,10 @@
 #include "VideoStore.h"
 
 #include <iterator>
+#include <iostream>
 
 /*
  * adds a rental pointer to the appropriate vector for it's type.
- * Don't forget to deallocate the pointer sent.
  */
 void
 VideoStore::addRental (const std::unique_ptr<Rental>& r)
@@ -85,3 +85,36 @@ VideoStore::removeVideo (int index)
 
 }
 
+void
+VideoStore::listGamesInStock ()
+{
+  if (gamesInStock () == 0)
+    {
+      return;
+    }
+  for (unsigned int i = 0; i < games.size (); i++)
+    {
+      if (!games.at (i).isRented ())
+	{
+	  std::cout << games.at (i);
+	  std::cout << "\n";
+	}
+    }
+}
+
+void
+VideoStore::listVideosInStock ()
+{
+  if (videosInStock () == 0)
+    {
+      return;
+    }
+  for (unsigned int i = 0; i < videos.size (); i++)
+    {
+      if (!videos.at (i).isRented ())
+	{
+	  std::cout << videos.at (i);
+	  std::cout << "\n";
+	}
+    }
+}

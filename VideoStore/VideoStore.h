@@ -32,6 +32,10 @@ public:
   gamesInStock ();
   int
   videosInStock ();
+  void
+  listGamesInStock ();
+  void
+  listVideosInStock ();
 
   /**
    * Takes a vector of rental pointers, sorts them into games and videos.

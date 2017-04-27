@@ -68,7 +68,7 @@ public:
   virtual std::string
   toString () const override
   {
-    std::string temp = "Game: \nTitle: " + title + "\nCost: "
+    std::string temp = "\nGame: \nTitle: " + title + "\nCost: "
 	+ std::to_string (cost) + "\nRating: " + ratingLocalized
 	+ "\n# of players: " + std::to_string (numberOfPlayers) + "\nPlatform: "
 	+ platform;
