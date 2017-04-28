@@ -72,15 +72,22 @@ VideoStore::videosInStock ()
 void
 VideoStore::removeGame (int index)
 {
-  index--;
-  games.erase (games.begin () + index);
+  if (index != 0)
+    {
+      index--;
+    }
 
+  games.erase (games.begin () + index);
 }
 
 void
 VideoStore::removeVideo (int index)
 {
-  index--;
+  if (index != 0)
+    {
+      index--;
+    }
+
   videos.erase (videos.begin () + index);
 
 }
