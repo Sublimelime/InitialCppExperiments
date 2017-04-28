@@ -47,6 +47,16 @@ public:
       }
   }
 
+  //copy constructor
+  Video (const Video& vid) :
+      Rental (vid.title, vid.cost), description (vid.description), director (
+	  vid.director), ratingLocalized (vid.ratingLocalized), rating (
+	  vid.rating), leadingActors (vid.leadingActors), minutes (vid.minutes)
+  {
+
+  }
+
+
   virtual std::string
   toString () const override
   {

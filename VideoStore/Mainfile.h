@@ -10,8 +10,7 @@
 
 #include <vector>
 
-template<typename T>
-  void
-  deallocateVector (std::vector<T*>& vect);
+bool
+checkCin ();
 
 #endif /* MAINFILE_H_ */

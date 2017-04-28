@@ -53,6 +53,15 @@ public:
       }
   }
 
+  //copy constructor
+  Game (const Game& game) :
+      Rental (game.title, game.cost), numberOfPlayers (game.numberOfPlayers), rating (
+	  game.rating), platform (game.platform), ratingLocalized (
+	  game.ratingLocalized)
+  {
+
+  }
+
   int
   getNumberOfPlayers () const
   {

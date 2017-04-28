@@ -92,12 +92,15 @@ VideoStore::listGamesInStock ()
     {
       return;
     }
+  int counter (1);
   for (unsigned int i = 0; i < games.size (); i++)
     {
       if (!games.at (i).isRented ())
 	{
+	  std::cout << counter << '\n';
 	  std::cout << games.at (i);
 	  std::cout << "\n";
+	  counter++;
 	}
     }
 }
@@ -109,12 +112,15 @@ VideoStore::listVideosInStock ()
     {
       return;
     }
+  int counter (1);
   for (unsigned int i = 0; i < videos.size (); i++)
     {
       if (!videos.at (i).isRented ())
 	{
+	  std::cout << counter << '\n';
 	  std::cout << videos.at (i);
 	  std::cout << "\n";
+	  counter++;
 	}
     }
 }

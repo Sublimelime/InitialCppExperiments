@@ -35,6 +35,13 @@ public:
   {
   }
 
+  //copy constructor
+  Rental (const Rental& rental) :
+      title (rental.title), cost (rental.cost), rented (false)
+  {
+
+  }
+
   virtual
   ~Rental ()
   {
